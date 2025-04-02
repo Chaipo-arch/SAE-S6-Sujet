@@ -17,9 +17,13 @@ public class InventoryController {
     @Autowired
     private InventoryDao inventoryDao;
     
-    private final EmailService emailService = EmailService.getInstance();
-    
-    
+    private final EmailService emailService ;
+
+    public InventoryController(EmailService emailService) {
+        this.emailService = emailService;
+    }
+
+
     @PostMapping("/supplier-invoice")
     public String processSupplierInvoice(@RequestBody SupplierInvoice invoice) {
         try {
@@ -69,7 +73,7 @@ public class InventoryController {
             
             
             emailService.sendEmail(
-                "supplier@example.com",
+                    EmailService.EMAIL_SOURCE.SUPPLIER.getEmail(),
                 "Reorder Request",
                 "Please restock " + item.getName() + " (Quantity: " + reorderQuantity + ")"
             );

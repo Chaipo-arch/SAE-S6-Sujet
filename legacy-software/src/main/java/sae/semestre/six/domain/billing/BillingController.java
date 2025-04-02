@@ -10,6 +10,7 @@ import sae.semestre.six.mail.EmailService;
 import java.util.*;
 import java.io.*;
 import org.hibernate.Hibernate;
+import sae.semestre.six.mail.GmailService;
 
 @RestController
 @RequestMapping("/billing")
@@ -29,9 +30,10 @@ public class BillingController {
     @Autowired
     private DoctorDao doctorDao;
     
-    private final EmailService emailService = EmailService.getInstance();
+    private final EmailService emailService;
     
-    private BillingController() {
+    private BillingController(EmailService emailService) {
+        this.emailService = emailService;
         priceList.put("CONSULTATION", 50.0);
         priceList.put("XRAY", 150.0);
         priceList.put("CHIRURGIE", 1000.0);
@@ -41,7 +43,7 @@ public class BillingController {
         if (instance == null) {
             synchronized (BillingController.class) {
                 if (instance == null) {
-                    instance = new BillingController();
+                    instance = new BillingController(new GmailService());
                 }
             }
         }
@@ -97,7 +99,7 @@ public class BillingController {
             billDao.save(bill);
             
             emailService.sendEmail(
-                "admin@hospital.com",
+                    EmailService.EMAIL_SOURCE.ADMIN.getEmail(),
                 "New Bill Generated",
                 "Bill Number: " + bill.getBillNumber() + "\nTotal: $" + total
             );
