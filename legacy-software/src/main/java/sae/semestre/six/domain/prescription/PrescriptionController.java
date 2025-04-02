@@ -6,6 +6,8 @@ import sae.semestre.six.domain.billing.BillingService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import sae.semestre.six.file.FileHandler;
+
 import java.util.*;
 import java.io.*;
 
@@ -16,7 +18,8 @@ public class PrescriptionController {
     
     private static final Map<String, List<String>> patientPrescriptions = new HashMap<>();
     private static final Map<String, Integer> medicineInventory = new HashMap<>();
-    
+
+    private final FileHandler fileHandler;
     @Autowired
     private BillingService billingService;
     
@@ -36,7 +39,11 @@ public class PrescriptionController {
     
     @Autowired
     private PrescriptionDao prescriptionDao;
-    
+
+    public PrescriptionController(FileHandler fileHandler) {
+        this.fileHandler = fileHandler;
+    }
+
     @PostMapping("/add")
     public String addPrescription(
             @RequestParam String patientId,
@@ -61,10 +68,9 @@ public class PrescriptionController {
             
             prescriptionDao.save(prescription);
             
-            
-            new FileWriter(AUDIT_FILE, true)
-                .append(new Date().toString() + " - " + prescriptionId + "\n")
-                .close();
+
+            fileHandler.writeToFile(AUDIT_FILE,
+                    new Date().toString() + " - " + prescriptionId + "\n");
             
             
             List<String> currentPrescriptions = patientPrescriptions.getOrDefault(patientId, new ArrayList<>());
