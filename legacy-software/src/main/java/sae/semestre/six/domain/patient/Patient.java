@@ -2,7 +2,7 @@ package sae.semestre.six.domain.patient;
 
 import sae.semestre.six.domain.appointment.Appointment;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;

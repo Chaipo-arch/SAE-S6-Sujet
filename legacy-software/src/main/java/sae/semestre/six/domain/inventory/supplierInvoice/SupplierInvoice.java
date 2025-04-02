@@ -1,6 +1,6 @@
 package sae.semestre.six.domain.inventory.supplierInvoice;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 import java.util.Set;
 import java.util.HashSet;

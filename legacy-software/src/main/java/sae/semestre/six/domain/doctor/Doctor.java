@@ -2,7 +2,7 @@ package sae.semestre.six.domain.doctor;
 
 import sae.semestre.six.domain.appointment.Appointment;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity

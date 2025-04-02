@@ -3,7 +3,7 @@ package sae.semestre.six.domain.medicalRecord;
 import sae.semestre.six.domain.doctor.Doctor;
 import sae.semestre.six.domain.patient.Patient;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity

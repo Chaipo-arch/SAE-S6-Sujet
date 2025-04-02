@@ -2,7 +2,7 @@ package sae.semestre.six.domain.inventory.supplierInvoice;
 
 import sae.semestre.six.domain.inventory.Inventory;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "supplier_invoice_details")
