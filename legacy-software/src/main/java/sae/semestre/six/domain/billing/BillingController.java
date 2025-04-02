@@ -6,9 +6,11 @@ import sae.semestre.six.domain.doctor.DoctorDao;
 import sae.semestre.six.domain.patient.PatientDao;
 import sae.semestre.six.domain.doctor.Doctor;
 import sae.semestre.six.domain.patient.Patient;
+import sae.semestre.six.file.FileHandler;
 import sae.semestre.six.mail.EmailService;
 import java.util.*;
 import java.io.*;
+
 import org.hibernate.Hibernate;
 import sae.semestre.six.mail.GmailService;
 
@@ -23,6 +25,8 @@ public class BillingController {
     
     @Autowired
     private BillDao billDao;
+
+    private final FileHandler fileHandler;
     
     @Autowired
     private PatientDao patientDao;
@@ -32,12 +36,14 @@ public class BillingController {
     
     private final EmailService emailService;
     
-    private BillingController(EmailService emailService) {
+    private BillingController(FileHandler fileHandler, EmailService emailService) {
+        this.fileHandler = fileHandler;
         this.emailService = emailService;
         priceList.put("CONSULTATION", 50.0);
         priceList.put("XRAY", 150.0);
         priceList.put("CHIRURGIE", 1000.0);
     }
+
     
     public static BillingController getInstance() {
         if (instance == null) {
@@ -90,10 +96,9 @@ public class BillingController {
             
             bill.setTotalAmount(total);
             bill.setBillDetails(details);
-            
-            try (FileWriter fw = new FileWriter("C:\\hospital\\billing.txt", true)) {
-                fw.write(bill.getBillNumber() + ": $" + total + "\n");
-            }
+
+            fileHandler.writeToFile("C:\\hospital\\billing.txt",
+                    bill.getBillNumber() + ": $" + total + "\n");
             
             totalRevenue += total;
             billDao.save(bill);
