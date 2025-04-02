@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import sae.semestre.six.domain.inventory.supplierInvoice.SupplierInvoice;
 import sae.semestre.six.domain.inventory.supplierInvoice.SupplierInvoiceDetail;
+import sae.semestre.six.file.FileHandler;
 import sae.semestre.six.mail.EmailService;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -17,9 +18,15 @@ public class InventoryController {
     @Autowired
     private InventoryDao inventoryDao;
     
-    private final EmailService emailService = EmailService.getInstance();
-    
-    
+    private final EmailService emailService ;
+    private final FileHandler fileHandler;
+
+    public InventoryController(EmailService emailService, FileHandler fileHandler) {
+        this.emailService = emailService;
+        this.fileHandler = fileHandler;
+    }
+
+
     @PostMapping("/supplier-invoice")
     public String processSupplierInvoice(@RequestBody SupplierInvoice invoice) {
         try {
@@ -59,13 +66,10 @@ public class InventoryController {
         for (Inventory item : lowStockItems) {
             
             int reorderQuantity = item.getReorderLevel() * 2;
-            
-            
-            try (FileWriter fw = new FileWriter("C:\\hospital\\orders.txt", true)) {
-                fw.write("REORDER: " + item.getItemCode() + ", Quantity: " + reorderQuantity + "\n");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+
+            fileHandler.writeToFile("C:\\hospital\\orders.txt",
+                    "REORDER: " + item.getItemCode() + ", Quantity: " + reorderQuantity + "\n");
             
             
             emailService.sendEmail(
