@@ -17,12 +17,16 @@ public class SchedulingController {
     @Autowired
     private DoctorDao doctorDao;
     
-    private final EmailService emailService = EmailService.getInstance();
-    
-    
+    private final EmailService emailService;
+
+    public SchedulingController(EmailService emailService) {
+        this.emailService = emailService;
+    }
+
     @PostMapping("/appointment")
     public String scheduleAppointment(
             @RequestParam Long doctorId,
+
             @RequestParam Long patientId,
             @RequestParam Date appointmentDate) {
         try {
