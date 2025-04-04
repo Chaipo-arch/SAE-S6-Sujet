@@ -35,14 +35,6 @@ public class SupplierInvoiceDetail {
         this.id = id;
     }
     
-    public SupplierInvoice getSupplierInvoice() {
-        return supplierInvoice;
-    }
-    
-    public void setSupplierInvoice(SupplierInvoice supplierInvoice) {
-        this.supplierInvoice = supplierInvoice;
-    }
-    
     public Inventory getInventory() {
         return inventory;
     }
@@ -54,16 +46,8 @@ public class SupplierInvoiceDetail {
     public Integer getQuantity() {
         return quantity;
     }
-    
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-    
+
     public Double getUnitPrice() {
         return unitPrice;
     }
-    
-    public void setUnitPrice(Double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-} 
+}

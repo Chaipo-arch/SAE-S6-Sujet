@@ -34,16 +34,5 @@ public class LabResult {
     
     public PatientHistory getPatientHistory() { return patientHistory; }
     public void setPatientHistory(PatientHistory patientHistory) { this.patientHistory = patientHistory; }
-    
-    public String getTestName() { return testName; }
-    public void setTestName(String testName) { this.testName = testName; }
-    
-    public String getResultValue() { return resultValue; }
-    public void setResultValue(String resultValue) { this.resultValue = resultValue; }
-    
-    public Date getTestDate() { return testDate; }
-    public void setTestDate(Date testDate) { this.testDate = testDate; }
-    
-    public String getNotes() { return notes; }
-    public void setNotes(String notes) { this.notes = notes; }
+
 } 

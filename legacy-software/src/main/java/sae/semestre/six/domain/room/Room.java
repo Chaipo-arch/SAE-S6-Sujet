@@ -48,19 +48,7 @@ public class Room {
     public String getRoomNumber() {
         return roomNumber;
     }
-    
-    public void setRoomNumber(String roomNumber) {
-        this.roomNumber = roomNumber;
-    }
-    
-    public Integer getFloor() {
-        return floor;
-    }
-    
-    public void setFloor(Integer floor) {
-        this.floor = floor;
-    }
-    
+
     public String getType() {
         return type;
     }
@@ -72,19 +60,7 @@ public class Room {
     public Integer getCapacity() {
         return capacity;
     }
-    
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
-    }
-    
-    public Boolean getIsOccupied() {
-        return isOccupied;
-    }
-    
-    public void setIsOccupied(Boolean isOccupied) {
-        this.isOccupied = isOccupied;
-    }
-    
+
     public Set<Appointment> getAppointments() {
         return appointments;
     }

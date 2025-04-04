@@ -42,11 +42,7 @@ public class Inventory {
     public String getItemCode() {
         return itemCode;
     }
-    
-    public void setItemCode(String itemCode) {
-        this.itemCode = itemCode;
-    }
-    
+
     public String getName() {
         return name;
     }
@@ -66,11 +62,7 @@ public class Inventory {
             System.out.println("WARNING: Item " + itemCode + " needs restock!");
         }
     }
-    
-    public Double getUnitPrice() {
-        return unitPrice;
-    }
-    
+
     public void setUnitPrice(Double unitPrice) {
         this.unitPrice = unitPrice;
     }
@@ -78,14 +70,7 @@ public class Inventory {
     public Integer getReorderLevel() {
         return reorderLevel;
     }
-    
-    public void setReorderLevel(Integer reorderLevel) {
-        this.reorderLevel = reorderLevel;
-    }
-    
-    public Date getLastRestocked() {
-        return lastRestocked;
-    }
+
     
     public void setLastRestocked(Date lastRestocked) {
         this.lastRestocked = lastRestocked;

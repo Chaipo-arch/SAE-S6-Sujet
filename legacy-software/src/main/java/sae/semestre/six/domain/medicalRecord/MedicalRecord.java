@@ -63,36 +63,12 @@ public class MedicalRecord {
         this.id = id;
     }
 
-    public String getRecordNumber() {
-        return recordNumber;
-    }
-
-    public void setRecordNumber(String recordNumber) {
-        this.recordNumber = recordNumber;
-    }
-
     public Patient getPatient() {
         return patient;
     }
 
     public void setPatient(Patient patient) {
         this.patient = patient;
-    }
-
-    public String getDiagnosis() {
-        return diagnosis;
-    }
-
-    public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
-    }
-
-    public String getTreatment() {
-        return treatment;
-    }
-
-    public void setTreatment(String treatment) {
-        this.treatment = treatment;
     }
 
     public String getPrescription() {
@@ -103,22 +79,6 @@ public class MedicalRecord {
         this.prescription = prescription;
     }
 
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
-
-    public Date getRecordDate() {
-        return recordDate;
-    }
-
-    public void setRecordDate(Date recordDate) {
-        this.recordDate = recordDate;
-    }
-
     public Doctor getDoctor() {
         return doctor;
     }
@@ -127,27 +87,5 @@ public class MedicalRecord {
         this.doctor = doctor;
     }
 
-    public String getBloodPressure() {
-        return bloodPressure;
-    }
 
-    public void setBloodPressure(String bloodPressure) {
-        this.bloodPressure = bloodPressure;
-    }
-
-    public Float getTemperature() {
-        return temperature;
-    }
-
-    public void setTemperature(Float temperature) {
-        this.temperature = temperature;
-    }
-
-    public Float getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Float weight) {
-        this.weight = weight;
-    }
 } 

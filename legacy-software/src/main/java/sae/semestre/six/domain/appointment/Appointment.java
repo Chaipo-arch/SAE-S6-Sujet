@@ -60,14 +60,6 @@ public class Appointment {
         this.id = id;
     }
 
-    public String getAppointmentNumber() {
-        return appointmentNumber;
-    }
-
-    public void setAppointmentNumber(String appointmentNumber) {
-        this.appointmentNumber = appointmentNumber;
-    }
-
     public Patient getPatient() {
         return patient;
     }
@@ -88,28 +80,12 @@ public class Appointment {
         return appointmentDate;
     }
 
-    public void setAppointmentDate(Date appointmentDate) {
-        this.appointmentDate = appointmentDate;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getRoomNumber() {
-        return roomNumber;
     }
 
     public void setRoomNumber(String roomNumber) {

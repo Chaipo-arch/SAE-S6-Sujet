@@ -33,7 +33,4 @@ public class SupplierInvoice {
         return details;
     }
     
-    public void setDetails(Set<SupplierInvoiceDetail> details) {
-        this.details = details;
-    }
-} 
+}

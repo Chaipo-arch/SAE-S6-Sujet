@@ -35,9 +35,5 @@ public class Treatment {
     public PatientHistory getPatientHistory() { return patientHistory; }
     public void setPatientHistory(PatientHistory patientHistory) { this.patientHistory = patientHistory; }
     
-    public Date getTreatmentDate() { return treatmentDate; }
-    public void setTreatmentDate(Date treatmentDate) { this.treatmentDate = treatmentDate; }
-    
-    public String getNotes() { return notes; }
-    public void setNotes(String notes) { this.notes = notes; }
+
 } 

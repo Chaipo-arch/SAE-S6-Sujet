@@ -38,11 +38,9 @@ public class BillDetail {
     public Bill getBill() { return bill; }
     public void setBill(Bill bill) { this.bill = bill; }
     
-    public String getTreatmentName() { return treatmentName; }
     public void setTreatmentName(String treatmentName) { this.treatmentName = treatmentName; }
     
-    public Integer getQuantity() { return quantity; }
-    public void setQuantity(Integer quantity) { 
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
         calculateLineTotal(); 
     }
@@ -53,6 +51,4 @@ public class BillDetail {
         calculateLineTotal(); 
     }
     
-    public Double getLineTotal() { return lineTotal; }
-    public void setLineTotal(Double lineTotal) { this.lineTotal = lineTotal; }
-} 
+}

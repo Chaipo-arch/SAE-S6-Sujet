@@ -67,13 +67,11 @@ public class Bill {
     public void setDoctor(Doctor doctor) { this.doctor = doctor; }
     
     public Date getBillDate() { return billDate; }
-    public void setBillDate(Date billDate) { this.billDate = billDate; }
-    
+
     public Double getTotalAmount() { return totalAmount; }
     public void setTotalAmount(Double totalAmount) { this.totalAmount = totalAmount; }
     
-    public String getStatus() { return status; }
-    public void setStatus(String status) { 
+    public void setStatus(String status) {
         this.status = status;
         this.lastModified = new Date(); 
     }
