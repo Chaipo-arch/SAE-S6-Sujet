@@ -49,7 +49,7 @@ public class BillingController {
         if (instance == null) {
             synchronized (BillingController.class) {
                 if (instance == null) {
-                    instance = new BillingController(new GmailService());
+                    instance = new BillingController(new FileHandler(),new GmailService());
                 }
             }
         }
