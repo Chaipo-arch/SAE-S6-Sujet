@@ -5,7 +5,7 @@ import sae.semestre.six.domain.appointment.Appointment;
 import sae.semestre.six.domain.patient.Patient;
 import sae.semestre.six.domain.prescription.Prescription;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.*;
 
 @Entity

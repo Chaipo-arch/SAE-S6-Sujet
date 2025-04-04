@@ -2,7 +2,7 @@ package sae.semestre.six.domain.prescription;
 
 import sae.semestre.six.domain.patient.Patient;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity

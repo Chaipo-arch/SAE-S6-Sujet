@@ -2,7 +2,7 @@ package sae.semestre.six.domain.patient.history;
 
 import sae.semestre.six.dao.AbstractHibernateDao;
 import org.springframework.stereotype.Repository;
-import javax.persistence.Query;
+import jakarta.persistence.Query;
 import java.util.*;
 
 @Repository
